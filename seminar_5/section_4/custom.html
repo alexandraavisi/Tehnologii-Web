@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    window.onload = () => {
+      const input = document.getElementById('nameInput');
+      const button = document.getElementById('greetBtn');
+
+      const customGreetEvent = new CustomEvent('greet', {
+        detail: { message: '' }
+      });
+
+      const clickHandler = () => {
+        const name = input.value || 'Anonim';
+        console.log('Buton apasat. Nume citit:', name);
+
+        customGreetEvent.detail.message = `Salut, ${name}!`;
+        document.dispatchEvent(customGreetEvent);
+      };
+
+      const greetHandler = (event) => {
+        console.log('Eveniment custom primit:', event.detail.message);
+        alert(event.detail.message);
+      };
+
+      button.addEventListener('click', clickHandler);
+      document.addEventListener('greet', greetHandler);
+    };
+  </script>
+</head>
+<body>
+  <input type="text" id="nameInput" placeholder="Scrie numele tau">
+  <button id="greetBtn">Salută-mă!</button>
+</body>
+</html>
