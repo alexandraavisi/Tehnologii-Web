@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px 10px;
+    }
+    table {
+      margin-top: 20px;
+      width: 50%;
+    }
+    form {
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      const form = document.getElementById('contactForm');
+      const tableBody = document.getElementById('contactsBody');
+
+      form.onsubmit = (e) => {
+        e.preventDefault(); 
+
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        if (!name || !phone) {
+          alert("Completati atat numele cat si telefonul!");
+          return;
+        }
+
+        const row = document.createElement('tr');
+
+        const nameCell = document.createElement('td');
+        nameCell.textContent = name;
+
+        const phoneCell = document.createElement('td');
+        phoneCell.textContent = phone;
+
+        row.appendChild(nameCell);
+        row.appendChild(phoneCell);
+
+        tableBody.appendChild(row);
+
+        form.reset();
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Agenda</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nume</th>
+        <th>Telefon</th>
+      </tr>
+    </thead>
+    <tbody id="contactsBody">
+    </tbody>
+  </table>
+
+  <form id="contactForm">
+    <h2>Adaugă contact nou</h2>
+    <input type="text" id="name" placeholder="Nume" required />
+    <input type="text" id="phone" placeholder="Telefon" required />
+    <button type="submit">Adaugă</button>
+  </form>
+</body>
+</html>
