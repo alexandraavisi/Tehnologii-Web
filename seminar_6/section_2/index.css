@@ -1,0 +1,43 @@
+.btn:hover {
+    color: blue;
+}
+
+input:required {
+    background-color: red;
+}
+
+input:focus {
+    background-color: yellow !important;
+}
+
+p::first-line {
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: blue;
+    border: 3px solid red;
+    position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 4px;
+}
