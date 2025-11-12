@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #5d5d5d;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper-inner {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  gap: 0;
+}
+
+.box-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 0;
+  border: 2px solid #333;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+}
+
+.chessboard .cell {
+  background-color: white;
+}
+
+.chessboard .cell:nth-child(even) {
+  background-color: black;
+}
+
+.chessboard .cell:nth-child(16n+1),
+.chessboard .cell:nth-child(16n+3),
+.chessboard .cell:nth-child(16n+5),
+.chessboard .cell:nth-child(16n+7),
+.chessboard .cell:nth-child(16n+10),
+.chessboard .cell:nth-child(16n+12),
+.chessboard .cell:nth-child(16n+14),
+.chessboard .cell:nth-child(16n+16) {
+  background-color: black;
+}
+
+.chessboard .cell:nth-child(16n+2),
+.chessboard .cell:nth-child(16n+4),
+.chessboard .cell:nth-child(16n+6),
+.chessboard .cell:nth-child(16n+8),
+.chessboard .cell:nth-child(16n+9),
+.chessboard .cell:nth-child(16n+11),
+.chessboard .cell:nth-child(16n+13),
+.chessboard .cell:nth-child(16n+15) {
+  background-color: white;
+}
+
+.cell {
+  border: 1px solid #333;
+}
